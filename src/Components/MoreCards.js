@@ -16,7 +16,7 @@ function MoreCards(props) {
         <ListGroup className="list-group-flush">
           <ListGroupItem>Modelis: {item.modelis}</ListGroupItem>
           <ListGroupItem>Metai: {item.metai}</ListGroupItem>
-          <ListGroupItem className='border border-success font-weight-bold'>Kaina: {item.kaina} €</ListGroupItem> 
+          <ListGroupItem className='border border-success font-weight-bold'>Kaina: {item.kaina} €</ListGroupItem>
         </ListGroup>
       </Card>
     )
