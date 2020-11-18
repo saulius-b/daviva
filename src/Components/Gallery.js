@@ -3,12 +3,6 @@ import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 
 
-import SwiperCore, { Navigation } from 'swiper';
-
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-SwiperCore.use([Navigation]);
-
 function Gallery(props) {
   const loadStatus = props.isLoading
   const pictures = props.pictures
@@ -64,10 +58,3 @@ function Gallery(props) {
 export default Gallery
 
 
-{/* <Swiper spaceBetween={1} slidesPerView={1} navigation>
-      <SwiperSlide><img src={showPictures[0]} alt='CarPicture 1'></img></SwiperSlide>
-      <SwiperSlide><img src={showPictures[1]} alt='CarPicture 2'></img></SwiperSlide>
-      <SwiperSlide><img src={showPictures[2]} alt='CarPicture 3'></img></SwiperSlide>
-      <SwiperSlide><img src={showPictures[3]} alt='CarPicture 4'></img></SwiperSlide>
-      <SwiperSlide><img src={showPictures[4]} alt='CarPicture 5'></img></SwiperSlide>
-    </Swiper> */}
