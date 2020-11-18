@@ -1,56 +1,24 @@
 import React from 'react'
-
 import Carousel from 'react-bootstrap/Carousel'
-
 
 function Gallery(props) {
   const loadStatus = props.isLoading
-  const pictures = props.pictures
+  let pictures = props.pictures  
 
-  let showPictures = ''
   if (loadStatus === true) {
-    showPictures = ''
+    pictures = ''
   } else if (loadStatus === false) {
-    showPictures = pictures
+    pictures = pictures.map((item, index) => {
+      return (
+        <Carousel.Item key={index}>
+          <img className="d-block w-100" src={item} alt={index}/>
+        </Carousel.Item>)
+    })
   }
 
   return (
     <Carousel indicators={false} interval={null}>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={showPictures[0]}
-          alt="First slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={showPictures[1]}
-          alt="Second slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={showPictures[2]}
-          alt="Third slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={showPictures[3]}
-          alt="Fourth slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={showPictures[4]}
-          alt="Fifth slide"
-        />
-      </Carousel.Item>
+      {pictures}
     </Carousel>
   )
 }
