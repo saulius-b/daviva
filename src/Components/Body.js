@@ -32,7 +32,7 @@ function Body() {
       .catch(handleErrors)
   }, [])
 
-  const handleClick = () => {
+  function handleClick() {
     axios.get(url)
       .then((response) => {
         setNewData(items => [...items, response.data])
