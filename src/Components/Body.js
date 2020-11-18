@@ -13,12 +13,23 @@ function Body() {
   const [newData, setNewData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
+  function handleErrors(err) {
+    if (err.response) {
+      alert('Issue with the response, error code: ' + err.response.status)
+    } else if (err.request) {
+      alert('Issue the with the request')
+    } else {
+      alert('Error', err.message)
+    }
+  }
+
   useEffect(() => {
     axios.get(url)
       .then((response) => {
         setInitialData(response.data)
         setIsLoading(false)
       })
+      .catch(handleErrors)
   }, [])
 
   const handleClick = () => {
@@ -26,6 +37,7 @@ function Body() {
       .then((response) => {
         setNewData(items => [...items, response.data])
       })
+      .catch(handleErrors)
   }
 
   return (
